@@ -18,11 +18,11 @@ func _process(delta):
 	#elif boosting:
 		#speed = 25
 		#boosting = false
-	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("left") and Input.is_action_pressed("right"):
 		pass
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("right"):
 		velocity.x += speed
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("left"):
 		velocity.x -= speed
 	else:
 		if velocity.x > 0:
@@ -33,11 +33,11 @@ func _process(delta):
 		velocity.x = 1000
 	if velocity.x < (-1000):
 		velocity.x = -1000
-	if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("up") and Input.is_action_pressed("down"):
 		pass
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("up"):
 		velocity.y -= speed
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("down"):
 		velocity.y += speed
 	else:
 		if velocity.y > 0:
@@ -51,7 +51,7 @@ func _process(delta):
 	$AnimatedSprite2D.play()
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-	if velocity.x != 0:
+	if abs(velocity.x) > abs(velocity.y):
 		$AnimatedSprite2D.animation = "side"
 		$AnimatedSprite2D.flip_v = false
 		
