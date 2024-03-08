@@ -6,6 +6,7 @@ var velocity = Vector2.ZERO
 var current_speed = 0
 var boosting = false
 var norm_velocity = velocity
+var p_rotation = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -51,17 +52,19 @@ func _process(delta):
 	$AnimatedSprite2D.play()
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-	if abs(velocity.x) > abs(velocity.y):
-		$AnimatedSprite2D.animation = "side"
-		$AnimatedSprite2D.flip_v = false
-		
-		$AnimatedSprite2D.flip_h = velocity.x < 0
-	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = 'up'
-		$AnimatedSprite2D.flip_h = false
-		
-		$AnimatedSprite2D.flip_v = velocity.y > 0
-
+	#if abs(velocity.x) > abs(velocity.y):
+		#$AnimatedSprite2D.animation = "side"
+		#$AnimatedSprite2D.flip_v = false
+		#
+		#$AnimatedSprite2D.flip_h = velocity.x < 0
+	#elif velocity.y != 0:
+		#$AnimatedSprite2D.animation = 'up'
+		#$AnimatedSprite2D.flip_h = false
+		#
+		#$AnimatedSprite2D.flip_v = velocity.y > 0
+	#EXPERIMENTAL#if (abs(velocity.x) > 200 or abs(velocity.x) > 200) or (abs(velocity.x) > 50 and abs(velocity.y) > 50):
+	if velocity.x != 0 or velocity.y != 0:
+		$AnimatedSprite2D.set_rotation(atan2(velocity.x,-velocity.y))
 func start(pos):
 	position = pos
 	show()
