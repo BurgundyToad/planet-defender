@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://8isjr0s13n7j"]
+
+[ext_resource type="Script" path="res://RigidBody2D.gd" id="1_axmte"]
+[ext_resource type="Texture2D" uid="uid://bpsxfm3ypw4db" path="res://art/circle.png" id="2_x54su"]
+[ext_resource type="Texture2D" uid="uid://dlcq0aknuuwnv" path="res://art/new circle.png" id="3_5fvr6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rxkk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x54su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5fvr6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1ygq"]
+radius = 22.0
+
+[node name="mob" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_axmte")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(188, 177)
+scale = Vector2(0.382814, 0.382946)
+sprite_frames = SubResource("SpriteFrames_0rxkk")
+
+[node name="Marker2D" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(75.1122, 4.82796)
+gizmo_extents = 23.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(188, 178)
+shape = SubResource("CircleShape2D_p1ygq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(188, 181)
+scale = Vector2(0.787499, 0.3875)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
