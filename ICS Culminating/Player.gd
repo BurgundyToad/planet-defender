@@ -1,7 +1,8 @@
 extends Area2D
 signal hit
-@export var speed = 25
+@export var speed = 40
 var screen_size
+@export var Bullet : PackedScene
 var velocity = Vector2.ZERO
 var current_speed = 0
 var boosting = false
@@ -49,6 +50,8 @@ func _process(delta):
 		velocity.y = 1000
 	if velocity.y < (-1000):
 		velocity.y = -1000
+	if Input.is_action_just_pressed("Space"):
+		shoot()
 	$AnimatedSprite2D.play()
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
@@ -65,6 +68,12 @@ func _process(delta):
 	#EXPERIMENTAL#if (abs(velocity.x) > 200 or abs(velocity.x) > 200) or (abs(velocity.x) > 50 and abs(velocity.y) > 50):
 	if velocity.x != 0 or velocity.y != 0:
 		$AnimatedSprite2D.set_rotation(atan2(velocity.x,-velocity.y))
+func shoot():
+	var b = Bullet.instantiate()
+	b.speed += sqrt(abs(velocity.x)+abs(velocity.y))*50
+	owner.add_child(b)
+	b.transform = $AnimatedSprite2D/Muzzle.global_transform
+	
 func start(pos):
 	position = pos
 	show()
