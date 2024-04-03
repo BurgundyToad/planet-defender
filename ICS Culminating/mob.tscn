@@ -1,17 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://8isjr0s13n7j"]
+[gd_scene load_steps=9 format=3 uid="uid://8isjr0s13n7j"]
 
-[ext_resource type="Script" path="res://RigidBody2D.gd" id="1_axmte"]
+[ext_resource type="Script" path="res://mob.gd" id="1_4shbi"]
+[ext_resource type="PackedScene" uid="uid://dsmq80plghkv1" path="res://enemy_bullet.tscn" id="2_p6sjk"]
 [ext_resource type="Texture2D" uid="uid://bpsxfm3ypw4db" path="res://art/circle.png" id="2_x54su"]
-[ext_resource type="Texture2D" uid="uid://dlcq0aknuuwnv" path="res://art/new circle.png" id="3_5fvr6"]
+[ext_resource type="PackedScene" uid="uid://bwju8kqjd4lrx" path="res://bullet.tscn" id="4_u60xp"]
+[ext_resource type="Script" path="res://AI.gd" id="4_womuk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0rxkk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_x54su")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_5fvr6")
 }],
 "loop": true,
 "name": &"default",
@@ -21,25 +20,49 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_p1ygq"]
 radius = 22.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2lhly"]
+radius = 73.8173
+
 [node name="mob" type="RigidBody2D"]
 gravity_scale = 0.0
-script = ExtResource("1_axmte")
+script = ExtResource("1_4shbi")
+Bullet = ExtResource("2_p6sjk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(188, 177)
+position = Vector2(166, 108)
+rotation = 0.0799227
 scale = Vector2(0.382814, 0.382946)
 sprite_frames = SubResource("SpriteFrames_0rxkk")
 
-[node name="Marker2D" type="Marker2D" parent="AnimatedSprite2D"]
-position = Vector2(75.1122, 4.82796)
+[node name="Muzzle" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(55.516, 6.03385)
+scale = Vector2(1, 1)
 gizmo_extents = 23.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(188, 178)
+position = Vector2(166, 110)
+rotation = -10.6426
 shape = SubResource("CircleShape2D_p1ygq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(188, 181)
+position = Vector2(167, 111)
+rotation = 2.87724
 scale = Vector2(0.787499, 0.3875)
 
+[node name="Bullets" parent="." instance=ExtResource("4_u60xp")]
+visible = false
+
+[node name="AI" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_womuk")
+
+[node name="PlayerDetectionZone" type="Area2D" parent="AI"]
+rotation = 4.30374
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDetectionZone"]
+position = Vector2(-132.752, 70.0132)
+rotation = 10.7957
+shape = SubResource("CircleShape2D_2lhly")
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_entered" from="AI/PlayerDetectionZone" to="AI" method="_on_player_detection_zone_body_entered"]
