@@ -21,7 +21,8 @@ func _unhandled_input(event):
 func shoot(): 
 	var b = Bullet.instantiate()
 	add_child(b)
-	b.global_position = $Muzzle.global_position
+	b.global_position = $AnimatedSprite2D/Muzzle.global_position
 	var target = get_global_mouse_position()
 	var direction_to_mouse = b.global_position.direction_to(target).normalized()
+	b.set_direction(direction_to_mouse)
 	
