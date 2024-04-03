@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce46gswj1bc4r"]
+[gd_scene load_steps=8 format=3 uid="uid://ce46gswj1bc4r"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_84sc5"]
 [ext_resource type="Texture2D" uid="uid://ce501papjfpyn" path="res://art/Player Model size.png" id="2_06ctg"]
 [ext_resource type="PackedScene" uid="uid://o07mbj46qo5q" path="res://bullet.tscn" id="2_6rqks"]
 [ext_resource type="Texture2D" uid="uid://bqy8bfeagfee7" path="res://art/Player Model (1).png" id="3_6rhgf"]
+[ext_resource type="PackedScene" uid="uid://bqjrpi8e84u8o" path="res://test_enemy.tscn" id="3_30ooo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8fxf1"]
 animations = [{
@@ -32,6 +33,7 @@ height = 168.0
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_84sc5")
 Bullet = ExtResource("2_6rqks")
+test_enemy = ExtResource("3_30ooo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(93.25, 110)
