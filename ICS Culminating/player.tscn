@@ -26,18 +26,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1v5w"]
-radius = 80.0
-height = 168.0
+radius = 120.0
+height = 240.0
 
-[node name="Player" type="Area2D"]
-scale = Vector2(0.5, 0.5)
+[node name="Player" type="RigidBody2D"]
+scale = Vector2(0.1, 0.1)
+mass = 0.01
+gravity_scale = 0.0
 script = ExtResource("1_84sc5")
 Bullet = ExtResource("2_6rqks")
 test_enemy = ExtResource("3_30ooo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(93.25, 110)
-scale = Vector2(0.725681, 0.635838)
+position = Vector2(90, 110)
+scale = Vector2(0.25, 0.219)
 sprite_frames = SubResource("SpriteFrames_8fxf1")
 animation = &"up"
 
@@ -47,5 +49,6 @@ rotation = -1.5708
 scale = Vector2(1.37802, 1.57273)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(93.25, 110)
+position = Vector2(90, 110)
+scale = Vector2(0.25, 0.25)
 shape = SubResource("CapsuleShape2D_c1v5w")
