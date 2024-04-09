@@ -1,32 +1,43 @@
 extends RigidBody2D
 @export var Bullet : PackedScene
-var health:int = 100
+@export var speed = 250
+var player_position
+var target_position
+
+@onready var player = get_parent().get_node("Player")
 signal mob_fire_bullet(bullet) 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	var end_of_gun = $AnimatedSprite2D/Muzzle
-	var ai = $AI
-	 
 	$AnimatedSprite2D.play()
-	pass
 
-func handle_hit():
-	health -= 20
-	print("enemy hit!", health)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _physics_process(_delta):
+	player_position = player.position
+	target_position = (player_position - position).normalized()
+		
+	if position.distance_to(player_position) > 3:
 
-func _unhandled_input(event):	
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
+		linear_velocity = target_position * speed
+		gravity_scale = 0
+		look_at(player_position)
+	else:
+		
+		linear_velocity = Vector2.ZERO
+		look_at(player_position)
+		gravity_scale = 0
+
+
+			
+
 
 func shoot(): 
 	var b = Bullet.instantiate()
-	add_child(b)
-	b.global_transform = $AnimatedSprite2D/Muzzle.global_transform
-	var target = get_global_mouse_position()
-	var direction_to_mouse = b.global_position.direction_to(target).normalized()
+	owner.add_child(b)
+	b.transform = $AnimatedSprite2D/Muzzle.global_transform
+	var direction = (player_position - position).normalized()
+	var direction_to_mouse = direction
 	b.set_direction(direction_to_mouse)
 	emit_signal("mob_fire_bullet", b)
-	
+
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
