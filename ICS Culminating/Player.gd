@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 signal hit
 @export var speed = 40
 var screen_size
@@ -55,8 +55,6 @@ func _process(delta):
 		shoot()
 	if Input.is_action_just_pressed("testing_key_1"):
 		spawn_enemy_TEST()
-	if Input.is_action_just_pressed("testing_key_2"):
-		next_level()
 	$AnimatedSprite2D.play()
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
@@ -76,7 +74,7 @@ func _process(delta):
 func shoot():
 	var b = Bullet.instantiate()
 	b.speed += sqrt(abs(velocity.x)+abs(velocity.y))*50
-	owner.add_child(b) 
+	owner.add_child(b)
 	b.transform = $AnimatedSprite2D/Muzzle.global_transform
 func spawn_enemy_TEST():
 	var te = test_enemy.instantiate()
@@ -85,6 +83,8 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
-func next_level():
-	print("level changed")
-	get_tree().change_scene_to_file("res://level_2_scene.tscn")
+
+
+func _on_pause_menu_pressed():
+	get_tree().change_scene_to_file("res://Level_Select_menu.tscn")
+	pass # Replace with function body.
