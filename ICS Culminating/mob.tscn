@@ -22,15 +22,15 @@ radius = 22.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_2lhly"]
 radius = 135.281
 
-[node name="mob" type="RigidBody2D" groups=["mobs"]]
+[node name="mob" type="RigidBody2D" groups=["enemy_bullets", "mobs"]]
 rotation = -0.365706
 script = ExtResource("1_4shbi")
 Bullet = ExtResource("2_p6sjk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(170, 104)
-rotation = -5.95342
-scale = Vector2(0.382814, 0.382946)
+position = Vector2(-1.93303, -1.28493)
+rotation = -6.34225
+scale = Vector2(0.380762, 0.390446)
 sprite_frames = SubResource("SpriteFrames_0rxkk")
 
 [node name="Muzzle" type="Marker2D" parent="AnimatedSprite2D"]
@@ -38,14 +38,13 @@ position = Vector2(44.4482, 3.35095)
 gizmo_extents = 23.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(170.741, 105.002)
+position = Vector2(-2.22535, 0.218654)
 rotation = -1.19179
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_p1ygq")
 one_way_collision = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(167, 111)
+position = Vector2(-4.90987, 5.18793)
 rotation = 2.87724
 scale = Vector2(0.787499, 0.3875)
 
@@ -62,4 +61,5 @@ rotation = 10.7957
 shape = SubResource("CircleShape2D_2lhly")
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.389
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
