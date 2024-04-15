@@ -4,13 +4,16 @@ signal hit
 var screen_size
 @export var Bullet : PackedScene
 @export var test_enemy: PackedScene
+@export var tower: Tower
 var velocity = Vector2.ZERO
 var current_speed = 0
 var boosting = false
 var norm_velocity = velocity
 var p_rotation = 0
+#var in_tower_range = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#tower.connect("interaction_range", player_enters_tower_range)
 	screen_size = get_viewport_rect().size
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -88,3 +91,5 @@ func start(pos):
 func _on_pause_menu_pressed():
 	get_tree().change_scene_to_file("res://Level_Select_menu.tscn")
 	pass # Replace with function body.
+#func player_enters_tower_range():
+	#in_tower_range = true
