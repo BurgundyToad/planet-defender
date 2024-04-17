@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://47xr8rautg2y"]
 
-[ext_resource type="Texture2D" uid="uid://dr73pygwwxosc" path="res://art/Tower_Base.png" id="1_g6d1d"]
+[ext_resource type="Texture2D" uid="uid://dqkr5et6ugvon" path="res://art/Tower_Base.png" id="1_g6d1d"]
 [ext_resource type="Script" path="res://basic_tower.gd" id="1_uj6w2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_orp37"]
@@ -57,5 +57,6 @@ offset_right = 46.0
 offset_bottom = -161.0
 text = "E to Interact"
 
+[connection signal="interacted" from="." to="." method="_on_interacted"]
 [connection signal="area_entered" from="interaction_range" to="." method="_on_interaction_range_area_entered"]
 [connection signal="area_exited" from="interaction_range" to="." method="_on_interaction_range_area_exited"]
