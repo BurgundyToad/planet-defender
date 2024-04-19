@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://47xr8rautg2y"]
 
-[ext_resource type="Texture2D" uid="uid://dqkr5et6ugvon" path="res://art/Tower_Base.png" id="1_g6d1d"]
+[ext_resource type="Texture2D" uid="uid://dr73pygwwxosc" path="res://art/Tower_Base.png" id="1_g6d1d"]
 [ext_resource type="Script" path="res://basic_tower.gd" id="1_uj6w2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_orp37"]
@@ -28,6 +28,9 @@ script = ExtResource("1_uj6w2")
 position = Vector2(6, 12)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_orp37")
+
+[node name="turret_location" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(10, -160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 13)
