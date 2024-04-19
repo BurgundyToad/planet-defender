@@ -66,3 +66,5 @@ text = "Tower 3"
 [node name="Button4" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Tower 4"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
