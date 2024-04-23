@@ -224,3 +224,5 @@ text = "elit
 "
 
 [connection signal="pressed" from="Panel/Tower Tree 1/Tower1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Panel/Tower Tree 1/Tower1/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel/Tower Tree 1/Tower1/Button3" to="." method="_on_button_3_pressed"]

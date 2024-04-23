@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://47xr8rautg2y"]
+[gd_scene load_steps=9 format=3 uid="uid://47xr8rautg2y"]
 
 [ext_resource type="Texture2D" uid="uid://dqkr5et6ugvon" path="res://art/Tower_Base.png" id="1_g6d1d"]
 [ext_resource type="Script" path="res://basic_tower.gd" id="1_uj6w2"]
 [ext_resource type="PackedScene" uid="uid://db0kkqt47l0ej" path="res://shooter_turret.tscn" id="2_xbura"]
+[ext_resource type="Texture2D" uid="uid://4ry60s83hppr" path="res://art/tower_level_2_badge.png" id="4_5pjrm"]
+[ext_resource type="Texture2D" uid="uid://phl4ewxvuxuh" path="res://art/tower_level_3_badge.png" id="5_vweh1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_orp37"]
 animations = [{
@@ -62,7 +64,17 @@ offset_right = 46.0
 offset_bottom = -161.0
 text = "E to Interact"
 
-[node name="lvl_2_badge" type="Sprite2D" parent="."]
+[node name="TowerLevel2Badge" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(8, 40)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_5pjrm")
+
+[node name="TowerLevel3Badge" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(8.475, 30.025)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_vweh1")
 
 [connection signal="interacted" from="." to="." method="_on_interacted"]
 [connection signal="area_entered" from="interaction_range" to="." method="_on_interaction_range_area_entered"]

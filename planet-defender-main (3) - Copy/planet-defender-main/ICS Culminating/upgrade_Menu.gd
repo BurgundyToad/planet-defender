@@ -21,3 +21,9 @@ func _on_moved_away(moved_away):
 func _on_button_1_pressed():
 	get_parent().get_parent().get_child(1).on_shooter_1_pressed()
 	pass # Replace with function body.
+func _on_button_2_pressed():
+	get_parent().get_parent().get_child(1).on_shooter_2_pressed()
+	pass # Replace with function body.
+func _on_button_3_pressed():
+	get_parent().get_parent().get_child(1).on_shooter_3_pressed()
+	pass # Replace with function body.

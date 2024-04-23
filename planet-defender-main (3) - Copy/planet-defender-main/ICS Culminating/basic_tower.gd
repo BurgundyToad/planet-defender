@@ -30,3 +30,12 @@ func on_shooter_1_pressed():
 		var st = shooter_turret.instantiate()
 		owner.add_child(st)
 		st.transform = $AnimatedSprite2D/turret_location.global_transform
+func on_shooter_2_pressed():
+	if tower == "shooter_1":
+		$TowerLevel2Badge.show()
+		tower = "shooter_2"
+func on_shooter_3_pressed():
+	if tower == "shooter_2":
+		$TowerLevel3Badge.show()
+		tower = "shooter_3"
+		
