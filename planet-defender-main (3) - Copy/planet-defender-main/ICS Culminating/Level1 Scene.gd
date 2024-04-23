@@ -1,9 +1,11 @@
 extends Node2D
 @export var mob_scene: PackedScene
+@export var tower : Tower
 var amount_mobs = 12
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	$MobTimer.start()
 	
 	

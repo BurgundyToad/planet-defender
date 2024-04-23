@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Level1 Scene.gd" id="1_r1o8a"]
 [ext_resource type="Texture2D" uid="uid://crb8aprkumwm7" path="res://art/Level 1 Backdrop.png" id="1_v32rf"]
-[ext_resource type="PackedScene" uid="uid://ce46gswj1bc4r" path="res://player.tscn" id="2_gejtj"]
 [ext_resource type="PackedScene" uid="uid://8isjr0s13n7j" path="res://mob.tscn" id="3_51jcl"]
 [ext_resource type="PackedScene" uid="uid://47xr8rautg2y" path="res://basic_tower.tscn" id="5_y15jn"]
 [ext_resource type="PackedScene" uid="uid://dp54o33w87lwm" path="res://upgrade_Menu.tscn" id="6_ks7am"]
+[ext_resource type="PackedScene" uid="uid://8imu1gjm8khr" path="res://Mouse_Moved_Player.tscn" id="7_01026"]
 
 [sub_resource type="Curve2D" id="Curve2D_vm0l8"]
 _data = {
@@ -24,8 +24,12 @@ offset_bottom = 1846.0
 texture = ExtResource("1_v32rf")
 expand_mode = 3
 
-[node name="Player" parent="." instance=ExtResource("2_gejtj")]
-position = Vector2(1439, 882)
+[node name="basic_tower" parent="." node_paths=PackedStringArray("Basic_Tower") instance=ExtResource("5_y15jn")]
+position = Vector2(1492, 360)
+Basic_Tower = NodePath("../CanvasLayer/upgrade_menu")
+
+[node name="Mouse_Moved_Player" parent="." instance=ExtResource("7_01026")]
+position = Vector2(549, 940)
 
 [node name="mob" parent="." instance=ExtResource("3_51jcl")]
 position = Vector2(-112, 512)
@@ -40,13 +44,13 @@ curve = SubResource("Curve2D_vm0l8")
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="basic_tower" parent="." instance=ExtResource("5_y15jn")]
-position = Vector2(1492, 360)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="upgrade_menu" parent="CanvasLayer" node_paths=PackedStringArray("Upgrade_Menu") instance=ExtResource("6_ks7am")]
+offset_left = 8.0
+offset_top = -2.0
+offset_right = 8.0
+offset_bottom = -2.0
 Upgrade_Menu = NodePath("../../basic_tower")
 
-[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
