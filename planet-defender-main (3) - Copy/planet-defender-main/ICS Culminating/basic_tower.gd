@@ -13,13 +13,17 @@ func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if interaction_range:
 			emit_signal("interacted", interacted)
-func _on_interaction_range_area_entered(area):
-	if area.is_in_group("player"): 
+func _on_interaction_range_body_entered(body):
+	print('range entered')
+	if body.is_in_group("player"): 
+		print('entered code should run')
 		$Interact_Sign.show()
 		$Label.show()
 		interaction_range = true
-func _on_interaction_range_area_exited(area):
-	if area.is_in_group("player"): 
+func _on_interaction_range_body_exited(body):
+	print ('range exited')
+	if body.is_in_group("player"): 
+		print("exit code should run")
 		$Interact_Sign.hide()
 		$Label.hide()
 		interaction_range = false

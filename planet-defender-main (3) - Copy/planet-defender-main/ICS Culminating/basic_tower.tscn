@@ -63,3 +63,5 @@ text = "E to Interact"
 [connection signal="interacted" from="." to="." method="_on_interacted"]
 [connection signal="area_entered" from="interaction_range" to="." method="_on_interaction_range_area_entered"]
 [connection signal="area_exited" from="interaction_range" to="." method="_on_interaction_range_area_exited"]
+[connection signal="body_entered" from="interaction_range" to="." method="_on_interaction_range_body_entered"]
+[connection signal="body_exited" from="interaction_range" to="." method="_on_interaction_range_body_exited"]
