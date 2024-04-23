@@ -48,3 +48,5 @@ scale = Vector2(1.37802, 1.57273)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 22)
 shape = SubResource("CapsuleShape2D_qbxg0")
+
+[node name="Camera2D" type="Camera2D" parent="."]

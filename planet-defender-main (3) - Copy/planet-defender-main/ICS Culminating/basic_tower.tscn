@@ -62,6 +62,8 @@ offset_right = 46.0
 offset_bottom = -161.0
 text = "E to Interact"
 
+[node name="lvl_2_badge" type="Sprite2D" parent="."]
+
 [connection signal="interacted" from="." to="." method="_on_interacted"]
 [connection signal="area_entered" from="interaction_range" to="." method="_on_interaction_range_area_entered"]
 [connection signal="area_exited" from="interaction_range" to="." method="_on_interaction_range_area_exited"]

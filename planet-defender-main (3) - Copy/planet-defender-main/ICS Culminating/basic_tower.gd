@@ -5,7 +5,7 @@ var interaction_range = false
 @export var Basic_Tower : UpgradeMenu
 @export var shooter_turret : PackedScene
 signal moved_away
-var tower_exists = false
+var tower = null
 func _ready():
 	$Interact_Sign.hide()
 	$Label.hide()
@@ -25,8 +25,8 @@ func _on_interaction_range_body_exited(body):
 		interaction_range = false
 		emit_signal("moved_away", moved_away)
 func on_shooter_1_pressed():
-	if not tower_exists:
-		tower_exists = true
+	if not tower:
+		tower = "shooter_1"
 		var st = shooter_turret.instantiate()
 		owner.add_child(st)
 		st.transform = $AnimatedSprite2D/turret_location.global_transform

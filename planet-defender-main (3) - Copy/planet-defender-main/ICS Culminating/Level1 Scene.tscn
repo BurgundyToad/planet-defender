@@ -19,13 +19,13 @@ mob_scene = ExtResource("3_51jcl")
 metadata/_edit_horizontal_guides_ = [531.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 2308.0
-offset_bottom = 1433.0
+offset_right = 4164.0
+offset_bottom = 2560.0
 texture = ExtResource("1_v32rf")
 expand_mode = 3
 
 [node name="basic_tower" parent="." node_paths=PackedStringArray("Basic_Tower") instance=ExtResource("5_y15jn")]
-position = Vector2(1101, 266)
+position = Vector2(2019, 521)
 Basic_Tower = NodePath("../CanvasLayer/upgrade_menu")
 
 [node name="mob" parent="." instance=ExtResource("3_51jcl")]
