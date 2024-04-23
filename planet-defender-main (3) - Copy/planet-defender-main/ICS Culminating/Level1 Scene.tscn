@@ -19,20 +19,17 @@ mob_scene = ExtResource("3_51jcl")
 metadata/_edit_horizontal_guides_ = [531.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 3094.0
-offset_bottom = 1846.0
+offset_right = 2308.0
+offset_bottom = 1433.0
 texture = ExtResource("1_v32rf")
 expand_mode = 3
 
 [node name="basic_tower" parent="." node_paths=PackedStringArray("Basic_Tower") instance=ExtResource("5_y15jn")]
-position = Vector2(1492, 360)
+position = Vector2(1101, 266)
 Basic_Tower = NodePath("../CanvasLayer/upgrade_menu")
 
-[node name="Mouse_Moved_Player" parent="." instance=ExtResource("7_01026")]
-position = Vector2(549, 940)
-
 [node name="mob" parent="." instance=ExtResource("3_51jcl")]
-position = Vector2(-112, 512)
+position = Vector2(631, 1364)
 linear_damp_mode = 1
 linear_damp = 20.162
 
@@ -43,6 +40,9 @@ curve = SubResource("Curve2D_vm0l8")
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Mouse_Moved_Player" parent="." instance=ExtResource("7_01026")]
+position = Vector2(549, 940)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

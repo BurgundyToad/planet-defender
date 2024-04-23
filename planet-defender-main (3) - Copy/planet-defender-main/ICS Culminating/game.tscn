@@ -22,6 +22,7 @@ visible = false
 script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" node_paths=PackedStringArray("game_manager") instance=ExtResource("1_pa6qh")]
 game_manager = NodePath("../..")

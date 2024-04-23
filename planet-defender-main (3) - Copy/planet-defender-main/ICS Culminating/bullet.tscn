@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dycjcofkdaipc" path="res://art/Bullet_0.png" id="1_rxc50"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdsg5"]
-radius = 24.0
+radius = 30.0
 height = 160.0
 
 [node name="bullet" type="Area2D"]
