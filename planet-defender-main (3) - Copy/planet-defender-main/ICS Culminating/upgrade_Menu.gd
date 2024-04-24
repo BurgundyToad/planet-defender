@@ -20,10 +20,19 @@ func _on_moved_away(moved_away):
 		hide()
 func _on_button_1_pressed():
 	get_parent().get_parent().get_child(1).on_shooter_1_pressed()
-	pass # Replace with function body.
 func _on_button_2_pressed():
 	get_parent().get_parent().get_child(1).on_shooter_2_pressed()
-	pass # Replace with function body.
 func _on_button_3_pressed():
 	get_parent().get_parent().get_child(1).on_shooter_3_pressed()
-	pass # Replace with function body.
+func _on_button_4_pressed():
+	get_parent().get_parent().get_child(1).on_bomber_1_pressed()
+func _on_button_5_pressed():
+	get_parent().get_parent().get_child(1).on_bomber_2_pressed()
+func _on_button_6_pressed():
+	get_parent().get_parent().get_child(1).on_bomber_3_pressed()
+func _on_button_7_pressed():
+	get_parent().get_parent().get_child(1).on_waver_1_pressed()
+func _on_button_8_pressed():
+	get_parent().get_parent().get_child(1).on_waver_2_pressed()
+func _on_button_9_pressed():
+	get_parent().get_parent().get_child(1).on_waver_3_pressed()

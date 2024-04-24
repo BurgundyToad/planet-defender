@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://47xr8rautg2y"]
+[gd_scene load_steps=11 format=3 uid="uid://47xr8rautg2y"]
 
 [ext_resource type="Texture2D" uid="uid://dqkr5et6ugvon" path="res://art/Tower_Base.png" id="1_g6d1d"]
 [ext_resource type="Script" path="res://basic_tower.gd" id="1_uj6w2"]
 [ext_resource type="PackedScene" uid="uid://db0kkqt47l0ej" path="res://shooter_turret.tscn" id="2_xbura"]
+[ext_resource type="PackedScene" uid="uid://d3enxjcxxk2r0" path="res://bomber_turret.tscn" id="3_mc3we"]
 [ext_resource type="Texture2D" uid="uid://4ry60s83hppr" path="res://art/tower_level_2_badge.png" id="4_5pjrm"]
+[ext_resource type="PackedScene" uid="uid://csmq6tovr1bcg" path="res://waver_turret.tscn" id="4_ixct3"]
 [ext_resource type="Texture2D" uid="uid://phl4ewxvuxuh" path="res://art/tower_level_3_badge.png" id="5_vweh1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_orp37"]
@@ -27,6 +29,8 @@ radius = 141.057
 [node name="basic_tower" type="Area2D"]
 script = ExtResource("1_uj6w2")
 shooter_turret = ExtResource("2_xbura")
+bomber_turret = ExtResource("3_mc3we")
+waver_turret = ExtResource("4_ixct3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, 12)

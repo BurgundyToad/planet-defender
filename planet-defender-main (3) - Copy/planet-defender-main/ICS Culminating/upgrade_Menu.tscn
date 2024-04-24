@@ -32,7 +32,7 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-text = "Upgrade Menu"
+text = "Tower Purchase & Upgrade"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -111,7 +111,7 @@ grow_vertical = 0
 
 [node name="Tower1" type="Label" parent="Panel/Tower Tree 2"]
 layout_mode = 2
-text = "lorem
+text = "Bomber Tower
 "
 horizontal_alignment = 1
 
@@ -125,8 +125,7 @@ offset_top = 66.0
 offset_right = 84.5
 offset_bottom = 97.0
 grow_horizontal = 2
-text = "ipsum
-"
+text = "BUILD"
 
 [node name="Button2" type="Button" parent="Panel/Tower Tree 2/Tower1"]
 layout_mode = 1
@@ -141,7 +140,7 @@ offset_right = 76.5
 offset_bottom = 172.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "dolor
+text = "Upgrade 1
 "
 
 [node name="Button3" type="Button" parent="Panel/Tower Tree 2/Tower1"]
@@ -157,7 +156,7 @@ offset_right = 75.5
 offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "sit
+text = "Upgrade 2
 "
 
 [node name="Tower Tree 3" type="VBoxContainer" parent="Panel"]
@@ -174,7 +173,7 @@ grow_vertical = 0
 
 [node name="Tower" type="Label" parent="Panel/Tower Tree 3"]
 layout_mode = 2
-text = "amet
+text = "Waver Tower
 "
 horizontal_alignment = 1
 
@@ -188,8 +187,7 @@ offset_top = 66.0
 offset_right = 84.5
 offset_bottom = 97.0
 grow_horizontal = 2
-text = "consectetur
-"
+text = "BUILD"
 
 [node name="Button2" type="Button" parent="Panel/Tower Tree 3/Tower"]
 layout_mode = 1
@@ -204,7 +202,7 @@ offset_right = 76.5
 offset_bottom = 172.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "adipiscing
+text = "Upgrade 1
 "
 
 [node name="Button3" type="Button" parent="Panel/Tower Tree 3/Tower"]
@@ -220,9 +218,15 @@ offset_right = 75.5
 offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "elit
+text = "Upgrade 2
 "
 
 [connection signal="pressed" from="Panel/Tower Tree 1/Tower1/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Panel/Tower Tree 1/Tower1/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Panel/Tower Tree 1/Tower1/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Panel/Tower Tree 2/Tower1/Button1" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Panel/Tower Tree 2/Tower1/Button2" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Panel/Tower Tree 2/Tower1/Button3" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Panel/Tower Tree 3/Tower/Button1" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Panel/Tower Tree 3/Tower/Button2" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Panel/Tower Tree 3/Tower/Button3" to="." method="_on_button_9_pressed"]
