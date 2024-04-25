@@ -2,10 +2,8 @@ extends Node2D
 @export var mob_scene: PackedScene
 @export var tower : Tower
 var amount_mobs = 12
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	$MobTimer.start()
 	
 	
@@ -14,10 +12,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
-func _process(delta):
-	pass
-
-
+func _input(event: InputEvent):
+	if event.is_action_pressed('upgrade'):
+		$CanvasLayer2.visible = !$CanvasLayer2.visible
 func _on_mob_timer_timeout():
 	if amount_mobs > 0: 
 		var mob = mob_scene.instantiate()
