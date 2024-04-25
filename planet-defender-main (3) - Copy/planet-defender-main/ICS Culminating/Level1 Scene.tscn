@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ug7bhaqnjdbl"]
+[gd_scene load_steps=10 format=3 uid="uid://ug7bhaqnjdbl"]
 
 [ext_resource type="Script" path="res://Level1 Scene.gd" id="1_r1o8a"]
 [ext_resource type="Texture2D" uid="uid://crb8aprkumwm7" path="res://art/Level 1 Backdrop.png" id="1_v32rf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dp54o33w87lwm" path="res://upgrade_Menu.tscn" id="6_ks7am"]
 [ext_resource type="PackedScene" uid="uid://8imu1gjm8khr" path="res://Mouse_Moved_Player.tscn" id="7_01026"]
 [ext_resource type="PackedScene" uid="uid://dawv6c8cfnyo8" path="res://player_upgrade_menu.tscn" id="7_63477"]
+[ext_resource type="FontFile" uid="uid://b10vrd8csdlok" path="res://art/SpeedyRegular-7BLoE.ttf" id="8_hgdgs"]
 
 [sub_resource type="Curve2D" id="Curve2D_vm0l8"]
 _data = {
@@ -42,6 +43,9 @@ curve = SubResource("Curve2D_vm0l8")
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 30.0
+
 [node name="Mouse_Moved_Player" parent="." instance=ExtResource("7_01026")]
 position = Vector2(549, 940)
 
@@ -59,5 +63,23 @@ visible = false
 
 [node name="Player_Upgrade_Menu" parent="CanvasLayer2" instance=ExtResource("7_63477")]
 
+[node name="wave" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1510.0
+offset_top = 948.0
+offset_right = 2516.0
+offset_bottom = 1400.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_hgdgs")
+theme_override_font_sizes/font_size = 150
+text = "NEW WAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
 [connection signal="speedd" from="CanvasLayer2/Player_Upgrade_Menu" to="Mouse_Moved_Player" method="_on_player_upgrade_menu_speedd"]
