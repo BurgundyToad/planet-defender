@@ -22,7 +22,4 @@ func set_direction(direction: Vector2):
 func _on_body_entered(body):
 	print("hit player")
 	if body.is_in_group("player"):
-		bullet_hit.emit(body)
-		body.hide()
-		#body.queue_free()
-	
+		body.damage()

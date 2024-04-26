@@ -17,14 +17,13 @@ func _on_game_manager_toggle_game_paused(is_paused : bool):
 	else:
 		hide()
 
-func _on_restart_button_pressed():
-	game_manager.game_paused=false
-	get_parent().get_parent().get_node("Level 1").hide()
-	get_parent().get_parent().get_node('Menus node').show()
-	emit_signal('Restart', Restarted)
 func _on_quit_button_pressed():
-	get_parent().get_parent().get_node("Level 1").hide()
+	get_parent().get_parent().get_node("menus_node").queue_free()
 	game_manager.game_paused=false
 	hide()
 	get_parent().get_parent().get_node('Menus node').show()
 	emit_signal("Level_left", Level_left)
+
+
+func _on_player_upgrade_menu_pressed():
+	pass

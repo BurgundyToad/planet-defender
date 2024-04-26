@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjfd3mxv43fbk"]
+[gd_scene load_steps=5 format=3 uid="uid://bjfd3mxv43fbk"]
 
 [ext_resource type="Script" path="res://menus_node.gd" id="1_wbpwt"]
+[ext_resource type="PackedScene" uid="uid://ug7bhaqnjdbl" path="res://Level1 Scene.tscn" id="2_k2oe1"]
 [ext_resource type="Texture2D" uid="uid://dewgrdtcdtc5b" path="res://art/Space Background2.png" id="2_uaumn"]
 [ext_resource type="FontFile" uid="uid://b10vrd8csdlok" path="res://art/SpeedyRegular-7BLoE.ttf" id="3_wvbej"]
 
 [node name="Menus node" type="Node2D"]
 script = ExtResource("1_wbpwt")
+Level_1 = ExtResource("2_k2oe1")
 
 [node name="BackGround" type="CanvasLayer" parent="."]
 
@@ -134,8 +136,8 @@ theme_override_fonts/font = ExtResource("3_wvbej")
 theme_override_font_sizes/font_size = 52
 text = "Level Select "
 
-[connection signal="pressed" from="BackGround/Main_Menu/Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BackGround/Main_Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="BackGround/Main_Menu/Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BackGround/Level Select/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="BackGround/Level Select/HBoxContainer/Level 1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="BackGround/Level Select/HBoxContainer/Level 2" to="." method="_on_level_2_pressed"]

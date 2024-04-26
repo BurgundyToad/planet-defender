@@ -4,20 +4,15 @@ extends RigidBody2D
 var player_position
 var target_position
 var timer = 0
-@onready var player = get_parent().get_node("Player")
+@onready var player = get_parent().get_node("Mouse_Moved_Player")
 signal mob_fire_bullet(bullet) 
 
 func _ready():
 	$AnimatedSprite2D.play()
-
+	$ShootTimer.start()
 func _physics_process(_delta):
 	player_position = player.position
 	target_position = (player_position - position).normalized()
-	timer += 1
-	
-	if timer > 50:
-		$ShootTimer.start()	
-		timer = 0
 	if position.distance_to(player_position) > 5:
 
 		linear_velocity = target_position * speed
@@ -35,17 +30,15 @@ func _physics_process(_delta):
 
 func shoot(): 
 	var b = Bullet.instantiate()
-	owner.add_child(b)
+	get_parent().add_child(b)
 	b.transform = $AnimatedSprite2D/Muzzle.global_transform
 	var direction = (player_position - position).normalized()
 	var direction_to_mouse = direction
 	b.set_direction(direction_to_mouse)
-
-
 	emit_signal("mob_fire_bullet", b)
 
-func _unhandled_input(event):
-	if Input.is_action_just_pressed("shoot"):
+func _unhandled_input(_event):
+	if Input.is_action_just_pressed("Space"):
 		shoot()
 
 

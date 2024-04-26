@@ -1,6 +1,7 @@
 extends Area2D
 var speed = 3000
 @export var bullet : PackedScene
+signal death
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,5 +13,6 @@ func _physics_process(delta):
 	pass
 func _on_body_entered(body):
 	if body.is_in_group("mobs"):
+		emit_signal('death',death)
 		body.queue_free()
 	queue_free()

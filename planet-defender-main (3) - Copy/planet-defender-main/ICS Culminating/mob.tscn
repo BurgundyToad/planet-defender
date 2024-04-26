@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://mob.gd" id="1_4shbi"]
 [ext_resource type="PackedScene" uid="uid://dsmq80plghkv1" path="res://enemy_bullet.tscn" id="2_p6sjk"]
 [ext_resource type="Texture2D" uid="uid://bpsxfm3ypw4db" path="res://art/circle.png" id="2_x54su"]
-[ext_resource type="PackedScene" uid="uid://bwju8kqjd4lrx" path="res://bullet.tscn" id="4_u60xp"]
+[ext_resource type="PackedScene" uid="uid://o07mbj46qo5q" path="res://bullet.tscn" id="4_u60xp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0rxkk"]
 animations = [{
