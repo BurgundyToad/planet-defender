@@ -4,12 +4,14 @@ signal interacted
 var interaction_range = false
 @export var Basic_Tower : UpgradeMenu
 @export var shooter_turret : PackedScene
+@export var bomber_turret: PackedScene
+@export var waver_turret: PackedScene
 signal moved_away
 var tower = null
 func _ready():
 	$Interact_Sign.hide()
 	$Label.hide()
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if interaction_range:
 			emit_signal("interacted", interacted)
@@ -38,4 +40,32 @@ func on_shooter_3_pressed():
 	if tower == "shooter_2":
 		$TowerLevel3Badge.show()
 		tower = "shooter_3"
-		
+func on_bomber_1_pressed():
+	if not tower:
+		tower = "bomber_1"
+		var bt = bomber_turret.instantiate()
+		owner.add_child(bt)
+		bt.transform = $AnimatedSprite2D/turret_location.global_transform	
+func on_bomber_2_pressed():
+	if tower == "bomber_1":
+		$TowerLevel2Badge.show()
+		tower = "bomber_2"
+func on_bomber_3_pressed():
+	if tower == "bomber_2":
+		$TowerLevel3Badge.show()
+		tower = "bomber_3"		
+func on_waver_1_pressed():
+	if not tower:
+		tower = "waver_1"
+		var wt = waver_turret.instantiate()
+		owner.add_child(wt)
+		wt.transform = $AnimatedSprite2D/turret_location.global_transform	
+func on_waver_2_pressed():
+	if tower == "waver_1":
+		$TowerLevel2Badge.show()
+		tower = "waver_2"
+func on_waver_3_pressed():
+	if tower == "waver_2":
+		$TowerLevel2Badge.hide()
+		$TowerLevel3Badge.show()
+		tower = "waver_3"		
