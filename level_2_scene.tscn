@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2jbulrsecxer"]
+
+[ext_resource type="Script" path="res://level_2_scene.gd" id="1_loyrk"]
+[ext_resource type="PackedScene" uid="uid://ce46gswj1bc4r" path="res://player.tscn" id="2_fmpo1"]
+[ext_resource type="Texture2D" uid="uid://b2tkhlkvde683" path="res://art/Level3_Backdrop.png" id="3_yuem7"]
+
+[node name="Level2 Scene" type="Node2D"]
+script = ExtResource("1_loyrk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+process_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -79.0
+offset_right = 1319.0
+offset_bottom = 790.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yuem7")
+
+[node name="Player" parent="." instance=ExtResource("2_fmpo1")]

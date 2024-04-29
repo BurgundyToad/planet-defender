@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://8isjr0s13n7j"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_4shbi"]
+[ext_resource type="PackedScene" uid="uid://dsmq80plghkv1" path="res://enemy_bullet.tscn" id="2_p6sjk"]
+[ext_resource type="Texture2D" uid="uid://bpsxfm3ypw4db" path="res://art/circle.png" id="2_x54su"]
+[ext_resource type="PackedScene" uid="uid://o07mbj46qo5q" path="res://bullet.tscn" id="4_u60xp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rxkk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x54su")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1ygq"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2lhly"]
+radius = 135.281
+
+[node name="mob" type="RigidBody2D" groups=["enemy_bullets", "mobs"]]
+rotation = -0.365706
+script = ExtResource("1_4shbi")
+Bullet = ExtResource("2_p6sjk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.93303, -1.28493)
+rotation = -6.34225
+scale = Vector2(0.380762, 0.390446)
+sprite_frames = SubResource("SpriteFrames_0rxkk")
+
+[node name="Muzzle" type="Marker2D" parent="AnimatedSprite2D"]
+position = Vector2(44.4482, 3.35095)
+gizmo_extents = 23.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.22535, 0.218654)
+rotation = -1.19179
+shape = SubResource("CircleShape2D_p1ygq")
+one_way_collision = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-4.90987, 5.18793)
+rotation = 2.87724
+scale = Vector2(0.787499, 0.3875)
+
+[node name="Bullets" parent="." instance=ExtResource("4_u60xp")]
+visible = false
+
+[node name="PlayerDetectionZone" type="Area2D" parent="."]
+visible = false
+rotation = -1.97945
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionZone"]
+position = Vector2(-166.906, 108.621)
+rotation = 10.7957
+shape = SubResource("CircleShape2D_2lhly")
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
