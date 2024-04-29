@@ -6,7 +6,7 @@ var target_position
 var timer = 0
 @onready var player = get_parent().get_node("Mouse_Moved_Player")
 signal mob_fire_bullet(bullet) 
-
+var marked_for_death=false
 func _ready():
 	$AnimatedSprite2D.play()
 	$ShootTimer.start()
@@ -23,10 +23,6 @@ func _physics_process(_delta):
 		linear_velocity = Vector2.ZERO
 		look_at(player_position)
 		gravity_scale = 0
-
-
-			
-
 
 func shoot(): 
 	var b = Bullet.instantiate()

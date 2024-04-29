@@ -15,11 +15,12 @@ func _physics_process(_Delta):
 		var velocity = direction * speed
 		global_position += velocity
 		
-func set_direction(direction: Vector2):
-	self.direction = direction
+func set_direction(direct: Vector2):
+	self.direction = direct
 
 
 func _on_body_entered(body):
 	print("hit player")
 	if body.is_in_group("player"):
 		body.damage()
+		queue_free()

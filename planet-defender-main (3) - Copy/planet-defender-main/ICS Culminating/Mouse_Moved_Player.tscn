@@ -50,3 +50,8 @@ position = Vector2(1, 22)
 shape = SubResource("CapsuleShape2D_qbxg0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="shoottimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="shoottimer" to="." method="_on_shoottimer_timeout"]

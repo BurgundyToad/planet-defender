@@ -1,5 +1,6 @@
 extends Node2D
 @export var Level_1 : PackedScene
+@export var Level_2 : PackedScene
 func _process(_delta):
 	pass
 # Called when the node enters the scene tree for the first time.
@@ -24,8 +25,7 @@ func _on_level_1_pressed():
 
 
 func _on_level_2_pressed():
-	$'BackGround'.hide()
-	get_parent().get_node("Level 2").show()
+	pass
 
 
 func _on_pause_menu_level_left(_Level_left):

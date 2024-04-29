@@ -1,6 +1,7 @@
 extends Node2D
 @export var mob_scene: PackedScene
 @export var tower : Tower
+@export var Level_1 :PackedScene
 var amount_mobs = 12
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,3 +31,19 @@ func _on_mob_timer_timeout():
 		amount_mobs -= 1
 		print(amount_mobs)
 	pass # Replace with function body.
+
+
+func _on_hud_game_over(_game_over):
+	
+	$Mouse_Moved_Player/CanvasLayer3.hide()
+	$CanvasLayer4.show()
+
+
+func _on_game_over_restart(_restart):
+	var L = Level_1.instantiate()
+	get_parent().add_child(L)
+
+
+func _on_game_over_quit(_quit):
+	queue_free()
+	get_parent().get_node("Menus node").get_node("BackGround").show()

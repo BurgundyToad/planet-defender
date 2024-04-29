@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dufxfjcx53qc0"]
+[gd_scene load_steps=5 format=3 uid="uid://dufxfjcx53qc0"]
 
 [ext_resource type="FontFile" uid="uid://b10vrd8csdlok" path="res://art/SpeedyRegular-7BLoE.ttf" id="1_aowpc"]
 [ext_resource type="Script" path="res://HUD.gd" id="1_hfn1g"]
 [ext_resource type="Script" path="res://Qt5.gd" id="3_0qafu"]
+[ext_resource type="Script" path="res://Shield Bar.gd" id="4_oriud"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -38,6 +39,7 @@ offset_bottom = 51.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("1_aowpc")
 theme_override_font_sizes/font_size = 1
+script = ExtResource("4_oriud")
 
 [node name="Coin_Count" type="Label" parent="."]
 layout_mode = 1
