@@ -121,7 +121,7 @@ grow_vertical = 2
 tooltip_text = "Hold Space to activate boost"
 theme_override_fonts/font = ExtResource("2_063du")
 theme_override_font_sizes/font_size = 28
-text = "Boost"
+text = "Boost(10)"
 
 [node name="Speed_Upgrade" type="Button" parent="Panel"]
 layout_mode = 1
@@ -135,7 +135,7 @@ offset_bottom = 128.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_063du")
 theme_override_font_sizes/font_size = 28
-text = "Speed"
+text = "Speed (5)"
 
 [node name="Shield_Upgrade" type="Button" parent="Panel"]
 layout_mode = 1
@@ -149,7 +149,7 @@ offset_bottom = -256.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_063du")
 theme_override_font_sizes/font_size = 28
-text = "Shield"
+text = "Shield (15)"
 
 [node name="Automatic_Upgrade" type="Button" parent="Panel"]
 layout_mode = 1
@@ -166,8 +166,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_063du")
 theme_override_font_sizes/font_size = 28
-text = "Automatic Weapon
-"
+text = "Automatic Weapon (5)"
 
 [node name="Bullet_Speed_Upgrade" type="Button" parent="Panel"]
 layout_mode = 1
@@ -184,9 +183,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_063du")
 theme_override_font_sizes/font_size = 28
-text = "Bullet Speed"
+text = "Bullet Speed (10)"
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Bullet_Size_Upgrade" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -201,7 +200,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_063du")
 theme_override_font_sizes/font_size = 28
-text = "infinidum"
+text = "Bullet Size (15)"
 
 [node name="Double_Cash_Upgrade" type="Button" parent="Panel"]
 layout_mode = 1
@@ -218,9 +217,9 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_063du")
 theme_override_font_sizes/font_size = 28
-text = "Cash x2"
+text = "Cash x2 (5)"
 
-[node name="Button2" type="Button" parent="Panel"]
+[node name="Bomb_Upgrade" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -235,9 +234,9 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_063du")
 theme_override_font_sizes/font_size = 28
-text = "Luxuria"
+text = "Bomb (10)"
 
-[node name="Button3" type="Button" parent="Panel"]
+[node name="Shockwave_Upgrade" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -252,14 +251,14 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_063du")
 theme_override_font_sizes/font_size = 28
-text = "Ira"
+text = "Shockwave (15)"
 
 [connection signal="pressed" from="Panel/Boost_Upgrade" to="." method="_on_boost_upgrade_pressed"]
 [connection signal="pressed" from="Panel/Speed_Upgrade" to="." method="_on_speed_upgrade_pressed"]
 [connection signal="pressed" from="Panel/Shield_Upgrade" to="." method="_on_shield_upgrade_pressed"]
 [connection signal="pressed" from="Panel/Automatic_Upgrade" to="." method="_on_automatic_upgrade_pressed"]
 [connection signal="pressed" from="Panel/Bullet_Speed_Upgrade" to="." method="_on_bullet_speed_upgrade_pressed"]
-[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Bullet_Size_Upgrade" to="." method="_on_bullet_size_upgrade_pressed"]
 [connection signal="pressed" from="Panel/Double_Cash_Upgrade" to="." method="_on_double_cash_upgrade_pressed"]
-[connection signal="pressed" from="Panel/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Panel/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Panel/Bomb_Upgrade" to="." method="_on_bomb_upgrade_pressed"]
+[connection signal="pressed" from="Panel/Shockwave_Upgrade" to="." method="_on_shockwave_upgrade_pressed"]

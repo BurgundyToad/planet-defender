@@ -33,9 +33,6 @@ func shoot():
 	b.set_direction(direction_to_mouse)
 	emit_signal("mob_fire_bullet", b)
 
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed("Space"):
-		shoot()
 
 
 func _on_shoot_timer_timeout():

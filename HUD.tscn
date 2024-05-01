@@ -51,7 +51,7 @@ offset_right = 183.0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_aowpc")
 theme_override_font_sizes/font_size = 28
-text = "Coins:
+text = "Coins: 0
 "
 
 [node name="Button" type="Button" parent="."]
@@ -73,3 +73,8 @@ grow_horizontal = 0
 theme_override_fonts/font = ExtResource("1_aowpc")
 theme_override_font_sizes/font_size = 28
 text = "Health:"
+
+[node name="shield_regen_timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="shield_regen_timer" to="." method="_on_shield_regen_timer_timeout"]

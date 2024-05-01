@@ -19,6 +19,7 @@ func explode():
 		if target.is_in_group("mobs"):
 			if target.marked_for_death:
 				target.queue_free()
+				get_parent().get_node("Mouse_Moved_Player").add_coins(1)
 func _on_body_entered(body):
 	if body.is_in_group("mobs"):
 		explode()
