@@ -4,19 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://dycjcofkdaipc" path="res://art/Bullet_0.png" id="2_qo5ot"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpbb3"]
-radius = 5.99986
-height = 26.013
+radius = 34.0265
+height = 232.172
 
 [node name="Enemy_Bullet" type="Area2D" groups=["enemy_bullets"]]
 script = ExtResource("1_p0p60")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(59.5, 19.5)
-scale = Vector2(0.184932, 0.22)
+position = Vector2(140.5, 48.5)
+scale = Vector2(1.5137, 1.54)
 texture = ExtResource("2_qo5ot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(59, 19)
+position = Vector2(138, 47)
 rotation = 1.57761
 shape = SubResource("CapsuleShape2D_rpbb3")
 

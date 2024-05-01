@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://mob.gd" id="1_4shbi"]
 [ext_resource type="PackedScene" uid="uid://dsmq80plghkv1" path="res://enemy_bullet.tscn" id="2_p6sjk"]
-[ext_resource type="Texture2D" uid="uid://bpsxfm3ypw4db" path="res://art/circle.png" id="2_x54su"]
+[ext_resource type="Texture2D" uid="uid://cenbnkhwiljht" path="res://art/Single_Shot_Enemy.png" id="3_jiubg"]
 [ext_resource type="PackedScene" uid="uid://o07mbj46qo5q" path="res://bullet.tscn" id="4_u60xp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0rxkk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_x54su")
+"texture": ExtResource("3_jiubg")
 }],
 "loop": true,
 "name": &"default",
@@ -28,13 +28,13 @@ script = ExtResource("1_4shbi")
 Bullet = ExtResource("2_p6sjk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.93303, -1.28493)
-rotation = -6.34225
-scale = Vector2(0.380762, 0.390446)
+position = Vector2(-1.86774, -0.715214)
+rotation = -4.89135
+scale = Vector2(0.0427299, 0.0412403)
 sprite_frames = SubResource("SpriteFrames_0rxkk")
 
 [node name="Muzzle" type="Marker2D" parent="AnimatedSprite2D"]
-position = Vector2(44.4482, 3.35095)
+position = Vector2(-217.864, -703.754)
 gizmo_extents = 23.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
