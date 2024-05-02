@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpqru18ehvx5u"]
+
+[ext_resource type="Script" path="res://mob_2.gd" id="1_ka40q"]
+[ext_resource type="Texture2D" uid="uid://db08ur4iuvtho" path="res://art/Ramming_Enemy.png" id="2_6h3bq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ygxb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6h3bq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qusb"]
+size = Vector2(76, 17)
+
+[node name="mob2" type="RigidBody2D" groups=["mobs"]]
+rotation = 0.0931501
+script = ExtResource("1_ka40q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.410067, 17.1123)
+rotation = -4.60146
+scale = Vector2(0.0640542, 0.0606519)
+sprite_frames = SubResource("SpriteFrames_ygxb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0930153, -0.995665)
+rotation = -0.015782
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8qusb")
